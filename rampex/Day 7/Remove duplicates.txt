@@ -1,0 +1,27 @@
+Remove duplicates
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner in= new Scanner(System.in);
+	    String s=in.nextLine();
+	    String r="";
+	    
+	    for(int i=0;i<s.length();i++){
+	        char ch=s.charAt(i);
+	        boolean flag= false;
+	        for(int j=0;j<i;j++){
+	            if(ch==s.charAt(j)){
+	                flag=true;
+	            }
+	        }
+	        if(!flag){
+	            r+=ch;
+	            
+	        }
+	    }
+	    System.out.print(r);
+	    
+	}
+}

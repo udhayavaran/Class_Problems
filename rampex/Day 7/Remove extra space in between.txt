@@ -1,0 +1,24 @@
+Remove extra space in between
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner in= new Scanner(System.in);
+	    boolean flag= false;
+	    String c="";
+	    String s=in.nextLine();
+	   for(int i=0;i<s.length();i++){
+	       char ch=s.charAt(i);
+	       if(ch!=' '){
+	           c=c+ch;
+	           flag=false;
+	       }
+	       else if(!flag){
+	           c=c+ch;
+	           flag=true;
+	       }
+	   }
+	   System.out.print(c);
+	}
+}

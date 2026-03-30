@@ -1,0 +1,60 @@
+Count frequency of characters
+// With frequency array
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner in= new Scanner(System.in);
+	    String s=in.nextLine();
+	    int [] fre=new int[256];
+	    for(int i=0;i<s.length();i++){
+	        char ch=s.charAt(i);
+	        fre[ch]++;
+	    }
+	    for(int i=0;i<fre.length;i++){
+	        if(fre[i]!=0){
+	            System.out.println((char)i+":"+fre[i]);
+	        }
+	    }
+
+	}
+}
+
+//Without frequency array
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner in= new Scanner(System.in);
+	    String s=in.nextLine();
+	    for(int i=0;i<s.length();i++){
+	        char ch=s.charAt(i);
+	        boolean flag=false;
+	        for(int j=0;j<i;j++){
+	            if(ch==s.charAt(j)){
+	                flag=true;
+	            }
+	        }
+	        if(flag){
+	            continue;
+	        }
+	        int count=1;
+	        for(int k=i+1;k<s.length();k++){
+	            if(ch==s.charAt(k)){
+	                count++;
+	            }
+	            
+	        }
+	        if(ch==' '){
+	            System.out.println("Space"+":"+count);
+	            
+	        }
+	        else{
+	            System.out.println(s.charAt(i)+":"+count);
+	        }
+	    }
+
+	}
+}

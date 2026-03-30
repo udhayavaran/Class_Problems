@@ -1,0 +1,24 @@
+Reverse words in a string
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner in= new Scanner(System.in);
+	    String s=in.nextLine();
+	    String ch="";
+	    String word="";
+	    for(int i=0;i<s.length();i++){
+	        if(s.charAt(i)!=' '){
+	        word+=s.charAt(i);
+	        }
+	        else{
+	            ch = word+" "+ch;
+	            word="";
+	        }
+	    }
+	    ch = word + " " + ch;
+	    System.out.print(ch);
+
+	}
+}
