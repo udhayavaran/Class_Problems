@@ -1,0 +1,29 @@
+
+class Solution {
+    public String convert(String s, int numRows) {
+if(numRows==1) return s;
+StringBuilder[]sb=new StringBuilder[numRows];
+for(int i=0;i<numRows;i++){
+    sb[i]=new StringBuilder();
+}
+boolean dir=false;
+int cr=0;
+for(int i=0;i<s.length();i++){
+    sb[cr].append(s.charAt(i));
+    if(cr==numRows-1||cr==0){
+        dir=!dir;
+    }
+    if(dir){
+        cr++;
+    }else{
+        cr--;
+    }
+}
+StringBuilder res=new StringBuilder();
+for(int i=0;i<sb.length;i++){
+    res.append(sb[i]);
+}
+return res.toString();
+
+    }
+}
