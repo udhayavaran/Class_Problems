@@ -1,0 +1,64 @@
+import java.util.*;
+class StorageItem {
+    String name;
+    void showDetails() {
+        System.out.println("Item: " + name);
+    }
+}
+class CloudFile extends StorageItem {
+    double size;
+    public CloudFile(String n, double s) {
+        name = n;
+        size = s;
+    }
+    void showDetails() {
+        System.out.println("File: " + name + " - Size: " + size + "MB");
+    }
+}
+class CloudFolder extends StorageItem {
+    public CloudFolder(String n) {
+        name = n;
+    }
+    void showDetails() {
+        System.out.println("Folder: " + name);
+    }
+}
+class CloudUser {
+    String username;
+    StorageItem[] myStorage;
+    int itemCount;
+    public CloudUser(String u) {
+        username = u;
+        myStorage = new StorageItem[10];
+        itemCount = 0;
+    }
+    public void upload(StorageItem item) {
+        myStorage[itemCount] = item;
+        itemCount++;
+    }
+    public void view() {
+        System.out.println("Storage for " + username + ":");
+        for (int i = 0; i < itemCount; i++) {
+            myStorage[i].showDetails();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter user name: ");
+        String s=sc.nextLine();
+        CloudUser user = new CloudUser(s);
+        System.out.print("Enter user folder name: ");
+        String folder=sc.nextLine();
+        CloudFolder folder1 = new CloudFolder(folder);
+        System.out.print("Enter file name and size: ");
+        String file=sc.nextLine();
+        double size=sc.nextDouble();
+        CloudFile file1 = new CloudFile(file, size);
+        user.upload(folder1);
+        user.upload(file1);
+        user.view();
+    }
+}
